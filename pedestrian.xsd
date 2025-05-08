@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:app="http://www.opengis.net/citygml/appearance/3.0" xmlns:brid="http://www.opengis.net/citygml/bridge/3.0" xmlns:bldg="http://www.opengis.net/citygml/building/3.0" xmlns:frn="http://www.opengis.net/citygml/cityfurniture/3.0" xmlns:grp="http://www.opengis.net/citygml/cityobjectgroup/3.0" xmlns:con="http://www.opengis.net/citygml/construction/3.0" xmlns:core="http://www.opengis.net/citygml/3.0" xmlns:dyn="http://www.opengis.net/citygml/dynamizer/3.0" xmlns:gen="http://www.opengis.net/citygml/generics/3.0" xmlns:luse="http://www.opengis.net/citygml/landuse/3.0" xmlns:pcl="http://www.opengis.net/citygml/pointcloud/3.0" xmlns:dem="http://www.opengis.net/citygml/relief/3.0" xmlns:tran="http://www.opengis.net/citygml/transportation/3.0" xmlns:tun="http://www.opengis.net/citygml/tunnel/3.0" xmlns:veg="http://www.opengis.net/citygml/vegetation/3.0" xmlns:vers="http://www.opengis.net/citygml/versioning/3.0" xmlns:wtr="http://www.opengis.net/citygml/waterbody/3.0" xmlns:pedestrian="https://github.com/Bahram-Saeidian/Pedestrian_ADE_CityGML3.git" elementFormDefault="qualified" targetNamespace="https://github.com/Bahram-Saeidian/Pedestrian_ADE_CityGML3.git" version="1.0">
+  <import namespace="http://www.opengis.net/citygml/3.0" schemaLocation="./core.xsd"/>
+  <import namespace="http://www.opengis.net/citygml/appearance/3.0" schemaLocation="./appearance.xsd"/>
+  <import namespace="http://www.opengis.net/citygml/bridge/3.0" schemaLocation="./bridge.xsd"/>
+  <import namespace="http://www.opengis.net/citygml/building/3.0" schemaLocation="./building.xsd"/>
+  <import namespace="http://www.opengis.net/citygml/cityfurniture/3.0" schemaLocation="./cityFurniture.xsd"/>
+  <import namespace="http://www.opengis.net/citygml/cityobjectgroup/3.0" schemaLocation="./cityObjectGroup.xsd"/>
+  <import namespace="http://www.opengis.net/citygml/construction/3.0" schemaLocation="./construction.xsd"/>
+  <import namespace="http://www.opengis.net/citygml/dynamizer/3.0" schemaLocation="./dynamizer.xsd"/>
+  <import namespace="http://www.opengis.net/citygml/generics/3.0" schemaLocation="./generics.xsd"/>
+  <import namespace="http://www.opengis.net/citygml/landuse/3.0" schemaLocation="./landUse.xsd"/>
+  <import namespace="http://www.opengis.net/citygml/pointcloud/3.0" schemaLocation="./pointCloud.xsd"/>
+  <import namespace="http://www.opengis.net/citygml/relief/3.0" schemaLocation="./relief.xsd"/>
+  <import namespace="http://www.opengis.net/citygml/transportation/3.0" schemaLocation="./transportation.xsd"/>
+  <import namespace="http://www.opengis.net/citygml/tunnel/3.0" schemaLocation="./tunnel.xsd"/>
+  <import namespace="http://www.opengis.net/citygml/vegetation/3.0" schemaLocation="./vegetation.xsd"/>
+  <import namespace="http://www.opengis.net/citygml/versioning/3.0" schemaLocation="./versioning.xsd"/>
+  <import namespace="http://www.opengis.net/citygml/waterbody/3.0" schemaLocation="./waterBody.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <element name="AccessToWalk" substitutionGroup="gml:AbstractObject" type="pedestrian:AccessToWalkType"/>
+  <complexType name="AccessToWalkType">
+    <sequence>
+      <element maxOccurs="unbounded" minOccurs="0" name="pedestrianAccess" type="gml:CodeType"/>
+      <element maxOccurs="unbounded" minOccurs="0" name="timeAccess" type="gml:CodeType"/>
+    </sequence>
+  </complexType>
+  <complexType name="AccessToWalkPropertyType">
+    <sequence>
+      <element ref="pedestrian:AccessToWalk"/>
+    </sequence>
+  </complexType>
+  <element name="AuxiliaryTrafficSpaceProperties" substitutionGroup="tran:ADEOfAuxiliaryTrafficSpace" type="pedestrian:AuxiliaryTrafficSpacePropertiesType"/>
+  <complexType name="AuxiliaryTrafficSpacePropertiesType">
+    <complexContent>
+      <extension base="tran:ADEOfAuxiliaryTrafficSpaceType">
+        <sequence>
+          <element minOccurs="0" name="persistence" type="pedestrian:PersistenceType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="AuxiliaryTrafficSpacePropertiesPropertyType">
+    <sequence>
+      <element ref="pedestrian:AuxiliaryTrafficSpaceProperties"/>
+    </sequence>
+  </complexType>
+  <element name="CityFurnitureProperties" substitutionGroup="frn:ADEOfCityFurniture" type="pedestrian:CityFurniturePropertiesType"/>
+  <complexType name="CityFurniturePropertiesType">
+    <complexContent>
+      <extension base="frn:ADEOfCityFurnitureType">
+        <sequence>
+          <element minOccurs="0" name="persistence" type="pedestrian:PersistenceType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="CityFurniturePropertiesPropertyType">
+    <sequence>
+      <element ref="pedestrian:CityFurnitureProperties"/>
+    </sequence>
+  </complexType>
+  <element name="ConstructionFurnitureProperties" substitutionGroup="con:ADEOfAbstractFurniture" type="pedestrian:ConstructionFurniturePropertiesType"/>
+  <complexType name="ConstructionFurniturePropertiesType">
+    <complexContent>
+      <extension base="con:ADEOfAbstractFurnitureType">
+        <sequence>
+          <element minOccurs="0" name="persistence" type="pedestrian:PersistenceType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="ConstructionFurniturePropertiesPropertyType">
+    <sequence>
+      <element ref="pedestrian:ConstructionFurnitureProperties"/>
+    </sequence>
+  </complexType>
+  <simpleType name="DoorEntranceFunctionType">
+    <restriction base="string">
+      <enumeration value="buildingEntrance"/>
+      <enumeration value="roomEntrance"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="DoorPermissibleDirectionType">
+    <restriction base="string">
+      <enumeration value="forwards"/>
+      <enumeration value="backwards"/>
+      <enumeration value="both"/>
+    </restriction>
+  </simpleType>
+  <element name="DoorWalkability" substitutionGroup="con:ADEOfDoor" type="pedestrian:DoorWalkabilityType"/>
+  <complexType name="DoorWalkabilityType">
+    <complexContent>
+      <extension base="con:ADEOfDoorType">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="accessToWalk" type="pedestrian:AccessToWalkPropertyType"/>
+          <element minOccurs="0" name="entranceFunction" type="pedestrian:DoorEntranceFunctionType"/>
+          <element minOccurs="0" name="openingType" type="pedestrian:OpeningTypeType"/>
+          <element maxOccurs="2" name="connectingRooms" type="string"/>
+          <element minOccurs="0" name="permissibleDirection" type="pedestrian:DoorPermissibleDirectionType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="DoorWalkabilityPropertyType">
+    <sequence>
+      <element ref="pedestrian:DoorWalkability"/>
+    </sequence>
+  </complexType>
+  <element name="Elevator" substitutionGroup="pedestrian:VerticalPassage" type="pedestrian:ElevatorType"/>
+  <complexType name="ElevatorType">
+    <complexContent>
+      <extension base="pedestrian:VerticalPassageType">
+        <sequence/>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="ElevatorPropertyType">
+    <sequence minOccurs="0">
+      <element ref="pedestrian:Elevator"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="Escalator" substitutionGroup="pedestrian:VerticalPassage" type="pedestrian:EscalatorType"/>
+  <complexType name="EscalatorType">
+    <complexContent>
+      <extension base="pedestrian:VerticalPassageType">
+        <sequence>
+          <element minOccurs="0" name="speed" type="gml:SpeedType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="EscalatorPropertyType">
+    <sequence minOccurs="0">
+      <element ref="pedestrian:Escalator"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="OpenSpaceWalkability" substitutionGroup="tran:ADEOfSquare" type="pedestrian:OpenSpaceWalkabilityType"/>
+  <complexType name="OpenSpaceWalkabilityType">
+    <complexContent>
+      <extension base="tran:ADEOfSquareType">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="accessToWalk" type="pedestrian:AccessToWalkPropertyType"/>
+          <element minOccurs="0" name="surfaceMaterial" type="gml:CodeType"/>
+          <element minOccurs="0" name="surfaceCondition" type="string"/>
+          <element minOccurs="0" name="slope" type="gml:AngleType"/>
+          <element minOccurs="0" name="sharedSpace" type="boolean"/>
+          <element minOccurs="0" name="lighting" type="boolean"/>
+          <element minOccurs="0" name="shelter" type="boolean"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="OpenSpaceWalkabilityPropertyType">
+    <sequence>
+      <element ref="pedestrian:OpenSpaceWalkability"/>
+    </sequence>
+  </complexType>
+  <simpleType name="OpeningTypeType">
+    <restriction base="string">
+      <enumeration value="virtual"/>
+      <enumeration value="manual"/>
+      <enumeration value="automaticSliding"/>
+      <enumeration value="automaticSwing"/>
+      <enumeration value="automaticRevolving"/>
+      <enumeration value="automaticFolding"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="PersistenceType">
+    <restriction base="string">
+      <enumeration value="fixed"/>
+      <enumeration value="movable"/>
+      <enumeration value="dynamic"/>
+    </restriction>
+  </simpleType>
+  <element name="RoadWalkability" substitutionGroup="tran:ADEOfRoad" type="pedestrian:RoadWalkabilityType"/>
+  <complexType name="RoadWalkabilityType">
+    <complexContent>
+      <extension base="tran:ADEOfRoadType">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="accessToWalk" type="pedestrian:AccessToWalkPropertyType"/>
+          <element minOccurs="0" name="surfaceMaterial" type="gml:CodeType"/>
+          <element minOccurs="0" name="surfaceCondition" type="string"/>
+          <element minOccurs="0" name="slope" type="gml:AngleType"/>
+          <element minOccurs="0" name="sharedSpace" type="boolean"/>
+          <element minOccurs="0" name="lighting" type="boolean"/>
+          <element minOccurs="0" name="shelter" type="boolean"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="RoadWalkabilityPropertyType">
+    <sequence>
+      <element ref="pedestrian:RoadWalkability"/>
+    </sequence>
+  </complexType>
+  <simpleType name="RoomTypeType">
+    <restriction base="string">
+      <enumeration value="end"/>
+      <enumeration value="connector"/>
+    </restriction>
+  </simpleType>
+  <element name="RoomWalkability" substitutionGroup="bldg:ADEOfBuildingRoom" type="pedestrian:RoomWalkabilityType"/>
+  <complexType name="RoomWalkabilityType">
+    <complexContent>
+      <extension base="bldg:ADEOfBuildingRoomType">
+        <sequence>
+          <element minOccurs="0" name="roomType" type="pedestrian:RoomTypeType"/>
+          <element minOccurs="0" name="surfaceMaterial" type="gml:CodeType"/>
+          <element minOccurs="0" name="surfaceCondition" type="string"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="accessVerticalPassage" type="pedestrian:VerticalPassagePropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="RoomWalkabilityPropertyType">
+    <sequence>
+      <element ref="pedestrian:RoomWalkability"/>
+    </sequence>
+  </complexType>
+  <element name="Stair" substitutionGroup="pedestrian:VerticalPassage" type="pedestrian:StairType"/>
+  <complexType name="StairType">
+    <complexContent>
+      <extension base="pedestrian:VerticalPassageType">
+        <sequence>
+          <element minOccurs="0" name="noOfSteps" type="integer"/>
+          <element minOccurs="0" name="stepHeight" type="gml:LengthType"/>
+          <element minOccurs="0" name="surfaceMaterial" type="gml:CodeType"/>
+          <element minOccurs="0" name="surfaceCondition" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="StairPropertyType">
+    <sequence minOccurs="0">
+      <element ref="pedestrian:Stair"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="TrackWalkability" substitutionGroup="tran:ADEOfTrack" type="pedestrian:TrackWalkabilityType"/>
+  <complexType name="TrackWalkabilityType">
+    <complexContent>
+      <extension base="tran:ADEOfTrackType">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="accessToWalk" type="pedestrian:AccessToWalkPropertyType"/>
+          <element minOccurs="0" name="surfaceMaterial" type="gml:CodeType"/>
+          <element minOccurs="0" name="surfaceCondition" type="string"/>
+          <element minOccurs="0" name="slope" type="gml:AngleType"/>
+          <element minOccurs="0" name="sharedSpace" type="boolean"/>
+          <element minOccurs="0" name="lighting" type="boolean"/>
+          <element minOccurs="0" name="shelter" type="boolean"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="TrackWalkabilityPropertyType">
+    <sequence>
+      <element ref="pedestrian:TrackWalkability"/>
+    </sequence>
+  </complexType>
+  <element abstract="true" name="VerticalPassage" substitutionGroup="tran:AbstractTransportationSpace" type="pedestrian:VerticalPassageType"/>
+  <complexType abstract="true" name="VerticalPassageType">
+    <complexContent>
+      <extension base="tran:AbstractTransportationSpaceType">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="accessToWalk" type="pedestrian:AccessToWalkPropertyType"/>
+          <element minOccurs="0" name="lighting" type="boolean"/>
+          <element minOccurs="0" name="shelter" type="boolean"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VerticalPassagePropertyType">
+    <sequence minOccurs="0">
+      <element ref="pedestrian:VerticalPassage"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+</schema>
